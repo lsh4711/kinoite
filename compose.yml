@@ -1,0 +1,5 @@
+services:
+  kinoite:
+    image: kinoite
+    build:
+      context: .
