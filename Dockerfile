@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora-kinoite:43
 
-RUN rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano \
+RUN rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano nano-default-editor \
 	&& rpm-ostree install distrobox fcitx5-hangul \
 	&& rpm-ostree cleanup --repomd \
 	&& rm -r /etc/skel/.mozilla/ \
