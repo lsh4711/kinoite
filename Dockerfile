@@ -7,4 +7,5 @@ RUN systemd-firstboot --reset --locale en_US.UTF-8 --timezone Asia/Seoul \
 	&& rpm-ostree install distrobox fcitx5-hangul gcc docker-compose \
 	&& flatpak remote-delete fedora \
 	&& flatpak remote-add flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
-	&& flatpak install --yes org.chromium.Chromium io.kinvolk.Headlamp
+	&& flatpak config --set extra-languages ko \
+	&& flatpak install --yes com.mongodb.Compass io.kinvolk.Headlamp org.chromium.Chromium
