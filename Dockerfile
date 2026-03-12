@@ -4,4 +4,5 @@ RUN rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano nan
 	&& rpm-ostree install distrobox fcitx5-hangul gcc docker-compose \
 	&& rpm-ostree cleanup --repomd \
 	&& rm -r /etc/skel/.mozilla/ \
-	&& rm /etc/skel/.bash_logout
+	&& rm /etc/skel/.bash_logout \
+	&& systemd-firstboot --reset
