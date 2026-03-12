@@ -1,7 +1,7 @@
 FROM quay.io/fedora/fedora-kinoite:43
 
 RUN systemd-firstboot --reset \
-	&& systemd-firstboot --locale en.US.UTF-8 \
+	&& systemd-firstboot --locale en_US.UTF-8 \
 	&& systemd-firstboot --timezone Asia/Seoul \
 	&& rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano nano-default-editor \
 	&& rpm-ostree install distrobox fcitx5-hangul gcc docker-compose \
