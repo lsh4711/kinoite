@@ -1,8 +1,6 @@
 FROM quay.io/fedora/fedora-kinoite:43
 
-RUN localectl set-locale en_US.UTF-8 \
-	&& timedatectl set-timezone Asia/Seoul \
-	&& rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano nano-default-editor \
+RUN rpm-ostree override remove firefox firefox-langpacks toolbox kwrite nano nano-default-editor \
 	&& rpm-ostree install distrobox fcitx5-hangul gcc docker-compose \
 	&& rpm-ostree cleanup --repomd \
 	&& rm -r /etc/skel/.mozilla/ \
