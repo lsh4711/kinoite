@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: "0 * * * *"
 
+  workflow_dispatch:
+
   push:
     branches:
       - main
@@ -28,7 +30,7 @@ jobs:
             fi
 
             OLD_VERSION=init
-          elif [ "${{ github.event_name }}" = "push" ]; then
+          elif [ "${{ github.event_name }}" = "push" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             OLD_VERSION=push
           else
             OLD_VERSION=$(echo "${MAYBE_OLD_VERSION}" | jq '.SchemaV2Manifest.annotations["org.opencontainers.image.version"]' --raw-output --exit-status)
